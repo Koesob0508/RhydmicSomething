@@ -9,5 +9,6 @@ public class Controller : MonoBehaviour
     public void SetCharacter(Character _character)
     {
         character = _character;
+        Debug.Log("아쟁이 소리가 들린다");
     }
 }
