@@ -7,10 +7,17 @@ public class SheetBuilder : MonoBehaviour
     public GameManager gameManager;
     public UIManager uiManager;
     public PlayerController playerController;
+    public Sheet Sheet;
+    public bool isReading = false;
 
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);    
+    }
+
+    private void Update()
+    {
+        ReadSheet();
     }
 
     public void ShowSheetBuilder(int _stageStep)
@@ -31,4 +38,11 @@ public class SheetBuilder : MonoBehaviour
     }
 
     // Player Controller에게 보내는 함수
+
+    void ReadSheet()
+    {
+        if (!isReading) return;
+
+
+    }
 }
