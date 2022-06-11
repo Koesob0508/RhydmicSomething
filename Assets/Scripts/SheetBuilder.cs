@@ -26,7 +26,7 @@ public class SheetBuilder : MonoBehaviour
     private void CompleteBuild()
     {
         this.HideSheetBuilder();
-        // PlayerCOntroller에게 보내는 함수
+        // PlayerController에게 보내는 함수
         gameManager.CompleteBuild();
     }
 

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    private Character pawn;
+    protected Character character;
 
-    public void SetPawn(Character _pawn)
+    public void SetCharacter(Character _character)
     {
-        pawn = _pawn;
+        character = _character;
     }
 }

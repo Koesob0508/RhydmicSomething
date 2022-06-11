@@ -41,7 +41,7 @@ public class StageManager : MonoBehaviour
         this.monsterControllers.Clear();
         
         this.player = Instantiate<Player>(playerPrefab);
-        this.playerController.SetPawn(this.player);
+        this.playerController.SetCharacter(this.player);
         this.SpanwMonster(_stageStep);
     }
 
@@ -86,7 +86,7 @@ public class StageManager : MonoBehaviour
 
             // 이거 바꿔야하는데 어떻게 바꿀까...
             MonsterController monsterController = new MonsterController();
-            monsterController.SetPawn(monster);
+            monsterController.SetCharacter(monster);
             
             monsters.Add(monster);
             monsterControllers.Add(monsterController);
