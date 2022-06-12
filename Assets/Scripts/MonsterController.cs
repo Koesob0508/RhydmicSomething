@@ -52,9 +52,4 @@ public class MonsterController : Controller
         yield return new WaitForSeconds(1f);
         isAttack = false;
     }
-
-    public override void Attack()
-    {
-        throw new System.NotImplementedException();
-    }
 }
