@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  monsterPrefab: {fileID: 575207724, guid: 19fc66f50ee2ded4bb372cc03dd6ec06, type: 3}
+  monsterPrefab: {fileID: 6777741209187299715, guid: 1c9aa157d119214429da362686092314, type: 3}
   monsters: []
   gameManager: {fileID: 0}
   playerController: {fileID: 0}
