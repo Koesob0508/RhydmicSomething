@@ -56,6 +56,11 @@ public class StageManager : MonoBehaviour
         stageAction(Define.eStageStatus.Init);
     }
 
+    private void StartStage()
+    {
+        stageAction(Define.eStageStatus.Start);
+    }
+
     private void StageFailed()
     {
         Debug.Log("Player Failed");
