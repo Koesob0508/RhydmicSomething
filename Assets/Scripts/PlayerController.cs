@@ -19,15 +19,18 @@ public class PlayerController : Controller
     public void Attack()
     {
         player.Attack();
+        Debug.Log("Attack");
     }
 
     public void Dash()
     {
         player.Dash();
+        Debug.Log("Dash");
     }
 
     public void Heal()
     {
         player.Heal(10);
+        Debug.Log("Heal");
     }
 }
