@@ -6,6 +6,11 @@ public class SheetReader : MonoBehaviour
 {
     public PlayerController PlayerController;
 
+    public AudioSource bgm;
+    public AudioSource atk;
+    public AudioSource dash;
+    public AudioSource heal;
+
     public Sheet Sheet;
     public bool isReading = false;
     public float curTime;
@@ -32,7 +37,7 @@ public class SheetReader : MonoBehaviour
     {
         switch (status)
         {
-            case Define.eStageStatus.Start:
+            case Define.eStageStatus.Init:
                 StartRead();
                 break;
             case Define.eStageStatus.Succeed:
@@ -48,6 +53,8 @@ public class SheetReader : MonoBehaviour
         noteIndex = 0;
         nextNoteTime = Sheet.startTime;
         isReading = true;
+
+        bgm.Play();
     }
 
     void EndRead()
@@ -56,6 +63,8 @@ public class SheetReader : MonoBehaviour
         noteIndex = 0;
         nextNoteTime = Sheet.startTime;
         isReading = false;
+
+        bgm.Stop();
     }
 
     void ReadSheet()
@@ -82,12 +91,15 @@ public class SheetReader : MonoBehaviour
                     {
                         case Define.eLineType.Attack:
                             PlayerController.Attack();
+                            atk.Play();
                             break;
                         case Define.eLineType.Dash:
                             PlayerController.Dash();
+                            dash.Play();
                             break;
                         case Define.eLineType.Heal:
                             PlayerController.Heal();
+                            heal.Play();
                             break;
                     }
                 }
