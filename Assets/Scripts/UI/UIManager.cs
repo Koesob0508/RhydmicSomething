@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+        StartSheetBuild();
     }
 
     public void StageClear(int nextStage)

@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116023b6d36109e468124704f3537ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SheetBuilder: {fileID: 0}
+  SheetReader: {fileID: 0}
   SheetLineContent: {fileID: 5812639963827306499}
   JoyStickBg: {fileID: 3305372264489036051}
   DeckBg: {fileID: 1622401471984123884}
@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Content: {fileID: 6835676399834681422}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 0
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135

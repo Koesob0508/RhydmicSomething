@@ -8,6 +8,7 @@ public class UISheet : MonoBehaviour
     [SerializeField] GameObject SheetLineContent;
     [SerializeField] GameObject JoyStickBg;
     [SerializeField] GameObject DeckBg;
+    [SerializeField] Button DoneButton;
 
     [SerializeField] GameObject SheetLinePrefab;
     [SerializeField] GameObject NotePrefab;

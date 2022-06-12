@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public UIManager uiManager;
     public StageManager stageManager;
-    public SheetReader sheetBuilder;
 
     public int stageStep;
 
