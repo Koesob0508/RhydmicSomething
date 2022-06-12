@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public abstract class Controller : MonoBehaviour
 {
     protected Character character;
 
@@ -11,8 +11,5 @@ public class Controller : MonoBehaviour
         character = _character;
     }
 
-    public void Attack()
-    {
-
-    }
+    public abstract void Attack();
 }

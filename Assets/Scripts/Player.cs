@@ -29,7 +29,7 @@ public class Player : Character
 
     public override void Move(Vector2 _direction)
     {
-        moveDirection = (Vector3.forward * _direction.x) + (Vector3.right * _direction.y);
+        moveDirection = (Vector3.forward * _direction.y) + (Vector3.right * _direction.x);
         Vector3 moveDistance = moveDirection.normalized * moveSpeed * Time.deltaTime;
         if (!(_direction.x == 0 & _direction.y == 0))
         {

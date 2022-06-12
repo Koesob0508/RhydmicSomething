@@ -19,6 +19,11 @@ public class PlayerController : Controller
 
     public void Move(Vector2 vector2)
     {
-        //player.Move(vector2);
+        player.Move(vector2);
+    }
+
+    public override void Attack()
+    {
+        throw new System.NotImplementedException();
     }
 }
