@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance;
     public GameManager gameManager;
     [SerializeField] UISheet UISheet;
 
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         DontDestroyOnLoad(this.gameObject);
-    }
-
-    public void ShowUI()
-    {
-        Debug.Log("Show yourself");
     }
 
     public void StageClear(int nextStage)
@@ -26,5 +23,15 @@ public class UIManager : MonoBehaviour
     public void StageFail()
     {
 
+    }
+
+    public void StartSheetBuild()
+    {
+        UISheet.StartSheetBuild();
+    }
+
+    public void DoneSheetBuild()
+    {
+        gameManager.CompleteBuild();
     }
 }
