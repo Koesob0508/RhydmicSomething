@@ -7,4 +7,9 @@ public class MonsterController : Controller
     public float verticalMove { get; private set; }
     public float horizontalMove { get; private set; }
     public bool attack { get; private set; }
+
+    void Start()
+    {
+        this.SetCharacter(this.gameObject.GetComponent<Monster>());
+    }
 }

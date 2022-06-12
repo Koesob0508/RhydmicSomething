@@ -1459,6 +1459,7 @@ GameObject:
   - component: {fileID: 7586691763309619524}
   - component: {fileID: 5188789729449846742}
   - component: {fileID: 6762358278938165872}
+  - component: {fileID: 718651898}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1496,7 +1497,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 2ce7369fb27e9144981c4023671217cf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1530,7 +1531,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.4
-  m_Height: 2.25
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &6762358278938165872
@@ -1545,6 +1546,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a807c0238c9974b8b082af98e34b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  moveAxisName: Vertical
+  rotateAxisName: Horizontal
+  attackButtonName: Fire1
+--- !u!114 &718651898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930324663129694387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccb8f786096cf14a99e6b49c91d4015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rotateSpeed: 180
 --- !u!1 &4939273491746191765
 GameObject:
   m_ObjectHideFlags: 0
