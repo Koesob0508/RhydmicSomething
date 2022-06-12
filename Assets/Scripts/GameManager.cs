@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Stage Failed");
         // SceneManager.LoadScene("MainScene");
-        uiManager.ShowUI();
+        uiManager.StageFail();
     }
 
     public void Succeeded()
@@ -36,6 +36,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Stage Succeeded");
         stageStep++;
         // SceneManager.LoadScene("MainScene");
-        this.sheetBuilder.ShowSheetBuilder(stageStep);
+        uiManager.StageClear(stageStep);
     }
 }

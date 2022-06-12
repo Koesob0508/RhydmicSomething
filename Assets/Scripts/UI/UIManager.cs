@@ -17,4 +17,14 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Show yourself");
     }
+
+    public void StageClear(int nextStage)
+    {
+
+    }
+
+    public void StageFail()
+    {
+
+    }
 }
