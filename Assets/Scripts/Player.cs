@@ -7,6 +7,7 @@ public class Player : Character
     private TestPlayerController playerController;
 
     private Vector3 moveDirection;
+    public Collider weapon;
 
     void Start()
     {
@@ -41,5 +42,10 @@ public class Player : Character
     public override void Attack()
     {
         this.characterAnimator.SetTrigger("Attack");
+    }
+
+    public void Dash()
+    {
+
     }
 }

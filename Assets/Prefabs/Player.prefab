@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a807c0238c9974b8b082af98e34b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 718651898}
   moveAxisName: Vertical
   rotateAxisName: Horizontal
   attackButtonName: Fire1
@@ -1564,6 +1564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotateSpeed: 180
+  weapon: {fileID: 0}
 --- !u!1 &4939273491746191765
 GameObject:
   m_ObjectHideFlags: 0

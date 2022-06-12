@@ -17,6 +17,12 @@ public class TestPlayerController : PlayerController
     {
         verticalMove = Input.GetAxis(moveAxisName);
         horizontalMove = Input.GetAxis(rotateAxisName);
-        attack = Input.GetButton(attackButtonName);
+        attack = Input.GetMouseButtonUp(0);
+
+        if (attack)
+        {
+            Debug.Log("실행");
+            character.gameObject.GetComponent<Player>().Attack();
+        }
     }
 }

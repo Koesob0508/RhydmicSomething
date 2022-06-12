@@ -30,7 +30,7 @@ public class StageManager : MonoBehaviour
 
     void Update()
     {
-        if (this.isStageContinue && this.player.gameObject.activeSelf)
+        if (this.isStageContinue && !this.player.gameObject.activeSelf)
         {
             this.StageFailed();
         }
@@ -76,6 +76,7 @@ public class StageManager : MonoBehaviour
     {
         Debug.Log("Player Succeeded");
         
+        this.isStageContinue = false;
         this.StageClear();
         this.gameManager.Succeeded();
 
@@ -120,13 +121,13 @@ public class StageManager : MonoBehaviour
 
     private int GetAliveEnemyCount()
     {
-        int result = 0;
+        int result = monsters.Count;
 
         foreach (Monster monster in monsters)
         {
-            if (monster.gameObject.activeSelf)
+            if (!monster.gameObject.activeSelf)
             {
-                result++;
+                result--;
             }
         }
 
