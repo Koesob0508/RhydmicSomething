@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UISheet : MonoBehaviour
 {
-    [SerializeField] SheetBuilder SheetBuilder;
+    [SerializeField] SheetReader SheetReader;
     [SerializeField] GameObject SheetLineContent;
     [SerializeField] GameObject JoyStickBg;
     [SerializeField] GameObject DeckBg;
@@ -29,9 +29,10 @@ public class UISheet : MonoBehaviour
     {
         if (!isSet)
         {
-            if (SheetBuilder.Sheet != null)
+            if (SheetReader.Sheet != null)
             {
-                InitSheetUI(SheetBuilder.Sheet);
+                isSet = true;
+                InitSheetUI(SheetReader.Sheet);
             }
         }
     }

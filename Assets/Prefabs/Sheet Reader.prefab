@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7266269358549917435}
   - component: {fileID: 7266269358549917434}
   m_Layer: 0
-  m_Name: Sheet Builder
+  m_Name: Sheet Reader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
