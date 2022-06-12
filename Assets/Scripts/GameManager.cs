@@ -20,14 +20,14 @@ public class GameManager : MonoBehaviour
     public void CompleteBuild()
     {
         Debug.Log("GameManager received complete sheet build");
-        SceneManager.LoadScene("StageScene");
+        // SceneManager.LoadScene("StageScene"); 확인 동안 MainScene에서만 작업합니다.
         this.stageManager.GenerateStage(stageStep);
     }
 
     public void Failed()
     {
         Debug.Log("Stage Failed");
-        SceneManager.LoadScene("MainScene");
+        // SceneManager.LoadScene("MainScene");
         uiManager.ShowUI();
     }
 
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Stage Succeeded");
         stageStep++;
-        SceneManager.LoadScene("MainScene");
+        // SceneManager.LoadScene("MainScene");
         this.sheetBuilder.ShowSheetBuilder(stageStep);
     }
 }
