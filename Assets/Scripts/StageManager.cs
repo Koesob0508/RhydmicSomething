@@ -11,11 +11,16 @@ public class StageManager : MonoBehaviour
     public List<Monster> monsters;
     public GameManager gameManager;
     public PlayerController playerController;
+    private float xSize;
+    private float zSize;
 
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
         this.monsters = new List<Monster>();
+
+        this.xSize = 8f;
+        this.zSize = 8f;
     }
 
     // void Update()
@@ -47,7 +52,6 @@ public class StageManager : MonoBehaviour
     {
         this.StageClear();
         this.gameManager.Failed();
-        
     }
 
     private void StageSucceeded()
@@ -56,7 +60,7 @@ public class StageManager : MonoBehaviour
         this.gameManager.Succeeded();
     }
 
-    private void StageClear()
+    public void StageClear()
     {
         this.player.gameObject.SetActive(false);
 
@@ -71,10 +75,14 @@ public class StageManager : MonoBehaviour
 
     private void SpanwMonster(int _spawnCount)
     {
-        for (int count = 0; count < _spawnCount; count++)
+        for (int count = 0; count < _spawnCount+2; count++)
         {
-            Monster monster = Instantiate<Monster>(monsterPrefab);
-            
+            float randomX = UnityEngine.Random.Range(-xSize, xSize);
+            float randomZ = UnityEngine.Random.Range(-zSize, zSize);
+            Vector3 randomPosition = new Vector3(randomX, 1f, randomZ);
+            Monster monster = Instantiate<Monster>(monsterPrefab, randomPosition, Quaternion.identity, this.transform);
+            monster.gameObject.GetComponent<MonsterController>().SetTarget(this.player);
+
             monsters.Add(monster);
         }
     }
