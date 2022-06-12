@@ -61,7 +61,7 @@ public class SheetReader : MonoBehaviour
     void ReadSheet()
     {
         if (!isReading) return;
-
+        Debug.Log("Reading");
         curTime += Time.deltaTime;
 
         if (nextNoteTime <= curTime)
