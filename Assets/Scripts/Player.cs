@@ -7,7 +7,6 @@ public class Player : Character
     private TestPlayerController playerController;
 
     private Vector3 moveDirection;
-    public Collider weapon;
 
     void Start()
     {
