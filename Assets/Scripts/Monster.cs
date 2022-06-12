@@ -4,5 +4,37 @@ using UnityEngine;
 
 public class Monster : Character
 {
-    // 그냥 움직이는거 구현해도 될 것도 같기도
+    private MonsterController monsterController;
+
+    private Vector3 moveDirection;
+
+    void Start()
+    {
+        monsterController = GetComponent<MonsterController>();
+        this.characterRigidbody = GetComponent<Rigidbody>();
+        this.characterAnimator = GetComponent<Animator>();
+    }
+
+    void FixedUpdate()
+    {
+        Move();
+
+        this.characterAnimator.SetFloat("Move", moveDirection.magnitude);    
+    }
+
+    public override void Move()
+    {
+        moveDirection = (Vector3.forward * monsterController.verticalMove) + (Vector3.right * monsterController.horizontalMove);
+        Vector3 moveDistance = moveDirection.normalized * moveSpeed * Time.deltaTime;
+        if (!(monsterController.horizontalMove == 0 & monsterController.verticalMove == 0))
+        {
+            this.characterRigidbody.MovePosition(this.characterRigidbody.position + moveDistance);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection), Time.deltaTime * rotateSpeed);
+        }
+    }
+
+    public override void Attack()
+    {
+        this.characterAnimator.SetTrigger("Attack");
+    }
 }

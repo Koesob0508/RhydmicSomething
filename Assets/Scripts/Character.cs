@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
-    public void Move()
-    {
-        Debug.Log("Move");
-    }
+    public float moveSpeed = 1f;
+    public float rotateSpeed = 180f;
+
+    protected Rigidbody characterRigidbody;
+    protected Animator characterAnimator;
+
+    public abstract void Move();
+
+    public abstract void Attack();
 
     public void Hit(float _damage)
     {
