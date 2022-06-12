@@ -16,7 +16,6 @@ public class PlayerController : Controller
     {
         player.Move(vector2);
     }
-
     public void Attack()
     {
         player.Attack();
