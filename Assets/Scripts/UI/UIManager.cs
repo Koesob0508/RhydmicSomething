@@ -18,6 +18,9 @@ public class UIManager : MonoBehaviour
         gameManager.stageManager.stageAction += SetStageStatus;
     }
 
+    /// <summary>
+    /// UI Button 으로 입력 받음.
+    /// </summary>
     public void DoneSheetBuild()
     {
         gameManager.CompleteBuild();
@@ -61,6 +64,6 @@ public class UIManager : MonoBehaviour
 
     void FailStage()
     {
-
+        gameManager.Retry();
     }
 }
