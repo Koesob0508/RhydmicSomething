@@ -13,14 +13,9 @@ public class UIManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        StartSheetBuild();
+        UISheet.StartSheetBuild();
 
         gameManager.stageManager.stageAction += SetStageStatus;
-    }
-
-    public void StartSheetBuild()
-    {
-        UISheet.StartSheetBuild();
     }
 
     public void DoneSheetBuild()
@@ -61,7 +56,7 @@ public class UIManager : MonoBehaviour
 
     void SucceedStage()
     {
-
+        UISheet.StartSheetBuild();
     }
 
     void FailStage()

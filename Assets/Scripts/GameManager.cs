@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        UIManager.instance.StartSheetBuild();
 
         stageManager.stageAction += StageChanged;
     }

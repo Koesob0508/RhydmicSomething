@@ -16,4 +16,9 @@ public class PlayerController : Controller
     {
         
     }
+
+    public void Move(Vector2 vector2)
+    {
+        //player.Move(vector2);
+    }
 }
