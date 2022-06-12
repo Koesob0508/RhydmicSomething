@@ -8,4 +8,9 @@ public class PlayerController : Controller
     {
         DontDestroyOnLoad(this.gameObject);
     }
+
+    public void Act()
+    {
+        
+    }
 }
