@@ -22,7 +22,7 @@ public class UISheet : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        DoneButton.onClick.AddListener(DoneSheetBuild);
     }
 
     // Update is called once per frame
@@ -67,6 +67,7 @@ public class UISheet : MonoBehaviour
 
     public void DoneSheetBuild()
     {
+        UIManager.instance.DoneSheetBuild();
         IsBuildMode = false;
         JoyStickBg.gameObject.SetActive(true);
         DeckBg.gameObject.SetActive(false);

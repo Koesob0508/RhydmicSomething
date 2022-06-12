@@ -14,9 +14,13 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        UIManager.instance.StartSheetBuild();
+
+        stageManager.stageAction += StageChanged;
     }
 
+    /// <summary>
+    /// UI 로부터 받음
+    /// </summary>
     public void CompleteBuild()
     {
         Debug.Log("GameManager received complete sheet build");
@@ -24,13 +28,32 @@ public class GameManager : MonoBehaviour
         this.stageManager.GenerateStage(stageStep);
     }
 
-    public void Failed()
+    private void StageChanged(Define.eStageStatus status)
+    {
+        switch (status)
+        {
+            case Define.eStageStatus.none:
+                break;
+            case Define.eStageStatus.Init:
+                break;
+            case Define.eStageStatus.Start:
+                break;
+            case Define.eStageStatus.Succeed:
+                Succeeded();
+                break;
+            case Define.eStageStatus.Fail:
+                Failed();
+                break;
+        }
+    }
+
+    void Failed()
     {
         Debug.Log("Stage Failed");
         // SceneManager.LoadScene("MainScene");
     }
 
-    public void Succeeded()
+    void Succeeded()
     {
         Debug.Log("Stage Succeeded");
         stageStep++;

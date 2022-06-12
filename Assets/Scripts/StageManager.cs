@@ -67,7 +67,6 @@ public class StageManager : MonoBehaviour
 
         this.isStageContinue = false;
         this.StageClear();
-        this.gameManager.Failed();
 
         stageAction(Define.eStageStatus.Fail);
     }
@@ -78,7 +77,6 @@ public class StageManager : MonoBehaviour
         
         this.isStageContinue = false;
         this.StageClear();
-        this.gameManager.Succeeded();
 
         stageAction(Define.eStageStatus.Succeed);
     }

@@ -11,6 +11,7 @@ public class UIJoystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     [SerializeField, Range(10f, 150f)]
     private float leverRange;
 
+    PlayerController PlayerController;
     private Vector2 inputVector;    // 추가
     private bool isInput;    // 추가
 
@@ -18,35 +19,38 @@ public class UIJoystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        PlayerController = FindObjectOfType<PlayerController>(true);
     }
 
     void Update()
     {
+        if (isInput)
+        {
+            Debug.Log(inputVector);
+            PlayerController.Move(inputVector);
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        ControlJoystickLever(eventData);  // 추가
-        isInput = true;    // 추가
+        isInput = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        ControlJoystickLever(eventData);    // 추가
-        isInput = false;    // 추가
-    }
-
-    public void ControlJoystickLever(PointerEventData eventData)
-    {
-        var inputDir = eventData.position - rectTransform.anchoredPosition;
+        var rectPos = new Vector2(rectTransform.position.x, rectTransform.position.y);
+        var inputDir = eventData.position - rectPos;
         var clampedDir = inputDir.magnitude < leverRange ? inputDir
             : inputDir.normalized * leverRange;
         lever.anchoredPosition = clampedDir;
-        inputVector = clampedDir / leverRange;
+        //var clampedDir = inputDir.magnitude < leverRange ? inputDir
+        //    : inputDir.normalized * leverRange;
+        inputVector = clampedDir.normalized;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        isInput = false;
         lever.anchoredPosition = Vector2.zero;
     }
 
