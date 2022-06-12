@@ -21,4 +21,13 @@ public class Define
         Dash = 3,
     }
 
+    public enum eStageStatus
+    {
+        none = 0,
+        Init,
+        Start,
+        Succeed,
+        Fail,
+    }
+
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StageManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class StageManager : MonoBehaviour
     public PlayerController playerController;
     private float xSize;
     private float zSize;
+
+    public UnityAction<Define.eStageStatus> stageAction = null;
 
     void Start()
     {
@@ -46,18 +49,24 @@ public class StageManager : MonoBehaviour
         // this.playerController.SetCharacter(this.player);
         this.player.gameObject.SetActive(true);
         this.SpanwMonster(_stageStep);
+
+        stageAction(Define.eStageStatus.Init);
     }
 
     private void StageFailed()
     {
         this.StageClear();
         this.gameManager.Failed();
+
+        stageAction(Define.eStageStatus.Fail);
     }
 
     private void StageSucceeded()
     {
         this.StageClear();
         this.gameManager.Succeeded();
+
+        stageAction(Define.eStageStatus.Succeed);
     }
 
     public void StageClear()
