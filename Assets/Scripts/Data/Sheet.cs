@@ -72,7 +72,7 @@ public class Sheet
         Note note = GetNote(_lineIndex, _noteIndex);
         if (note.noteType == Define.eNoteType.On)
         {
-            note.noteType = Define.eNoteType.none;
+            note.noteType = Define.eNoteType.Off;
             totalNoteNum += 1;
             return true;
         }

@@ -74,7 +74,25 @@ public class SheetReader : MonoBehaviour
                 return;
             }
 
-            currentNotes.ForEach(note => Debug.Log(note.noteType));
+            currentNotes.ForEach(note =>
+            {
+                if (note.noteType == Define.eNoteType.On)
+                {
+                    switch (note.lineType)
+                    {
+                        case Define.eLineType.Attack:
+                            PlayerController.Attack();
+                            break;
+                        case Define.eLineType.Dash:
+                            PlayerController.Dash();
+                            break;
+                        case Define.eLineType.Heal:
+                            PlayerController.Heal();
+                            break;
+                    }
+                }
+            });
+
             noteIndex += 1;
             nextNoteTime = (Sheet.startTime + Sheet.notePerTime * noteIndex);
         }

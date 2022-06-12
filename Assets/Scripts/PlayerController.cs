@@ -12,13 +12,23 @@ public class PlayerController : Controller
         this.SetCharacter(player);
     }
 
-    public void Act()
-    {
-        
-    }
-
     public void Move(Vector2 vector2)
     {
         player.Move(vector2);
+    }
+
+    public void Attack()
+    {
+        player.Attack();
+    }
+
+    public void Dash()
+    {
+        player.Dash();
+    }
+
+    public void Heal()
+    {
+        player.Heal(10);
     }
 }

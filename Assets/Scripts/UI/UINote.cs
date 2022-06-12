@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class UINote : MonoBehaviour, IPointerClickHandler
 {
-    private Image Image;
-    private UISheet UISheet;
-    private Sheet sheet;
-    private int lineIndex;
-    private int noteIndex;
+    [SerializeField] Image Image;
+    [SerializeField] UISheet UISheet;
+    [SerializeField] Sheet sheet;
+    [SerializeField] int lineIndex;
+    [SerializeField] int noteIndex;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         Image = GetComponent<Image>();
     }
@@ -27,6 +27,8 @@ public class UINote : MonoBehaviour, IPointerClickHandler
     {
         lineIndex = _lineIndex;
         noteIndex = _noteIndex;
+
+        ChangeImageColor(sheet.GetNoteType(_lineIndex, _noteIndex) == Define.eNoteType.On);
     }
 
     public void SetSheet(Sheet sheet) => this.sheet = sheet;
@@ -37,18 +39,22 @@ public class UINote : MonoBehaviour, IPointerClickHandler
 
         switch (sheet.GetNoteType(lineIndex, noteIndex))
         {
-            case Define.eNoteType.none:
+            case Define.eNoteType.Off:
                 if (sheet.UseNote(lineIndex, noteIndex))
-                {
-                    Image.color = Color.green;
-                }
+                    ChangeImageColor(true);
                 break;
             case Define.eNoteType.On:
                 if (sheet.ReturnNote(lineIndex, noteIndex))
-                {
-                    Image.color = Color.gray;
-                }
+                    ChangeImageColor(false);
                 break;
         }
+    }
+
+    void ChangeImageColor(bool isOn)
+    {
+        if (isOn)
+            Image.color = Color.green;
+        else
+            Image.color = Color.gray;
     }
 }

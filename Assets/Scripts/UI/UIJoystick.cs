@@ -26,7 +26,6 @@ public class UIJoystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     {
         if (isInput)
         {
-            Debug.Log(inputVector);
             PlayerController.Move(inputVector);
         }
     }
