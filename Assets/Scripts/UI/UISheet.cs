@@ -40,6 +40,9 @@ public class UISheet : MonoBehaviour
 
     void InitSheetUI(Sheet sheet)
     {
+        //if (isSet) return;
+        //else isSet = true;
+
         for (int i = 0; i < sheet.sheetLines.Count; i++)
         {
             var lineObject = Instantiate(SheetLinePrefab, SheetLineContent.transform);

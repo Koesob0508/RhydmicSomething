@@ -13,10 +13,14 @@ public class SheetReader : MonoBehaviour
     public float nextNoteTime;
     private List<Note> currentNotes = new List<Note>();
 
+    private bool isSet = false;
+
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
         Sheet = new Sheet(100);
+
+        GameManager.instance.stageManager.stageAction += StageChanged;
     }
 
     private void Update()
@@ -24,12 +28,34 @@ public class SheetReader : MonoBehaviour
         ReadSheet();
     }
 
-    public void ReadStart()
+    void StageChanged(Define.eStageStatus status)
+    {
+        switch (status)
+        {
+            case Define.eStageStatus.Start:
+                StartRead();
+                break;
+            case Define.eStageStatus.Succeed:
+            case Define.eStageStatus.Fail:
+                EndRead();
+                break;
+        }
+    }
+
+    void StartRead()
     {
         curTime = 0f;
         noteIndex = 0;
         nextNoteTime = Sheet.startTime;
         isReading = true;
+    }
+
+    void EndRead()
+    {
+        curTime = 0f;
+        noteIndex = 0;
+        nextNoteTime = Sheet.startTime;
+        isReading = false;
     }
 
     void ReadSheet()

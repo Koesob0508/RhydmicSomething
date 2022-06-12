@@ -19,6 +19,8 @@ public class Sheet
         sheetLines.Add(new SheetLine(count, Define.eLineType.Attack));
         sheetLines.Add(new SheetLine(count, Define.eLineType.Dash));
         sheetLines.Add(new SheetLine(count, Define.eLineType.Heal));
+        startTime = 2f;
+        notePerTime = 0.3333f;
     }
 
     public List<Note> GetCurrentLineNote(int index)
