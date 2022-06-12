@@ -13,7 +13,7 @@ public abstract class Character : MonoBehaviour
     protected Rigidbody characterRigidbody;
     protected Animator characterAnimator;
 
-    public abstract void Move(Vector3 _direction);
+    public abstract void Move(Vector2 _direction);
 
     public abstract void Attack();
 

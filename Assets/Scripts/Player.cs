@@ -17,8 +17,6 @@ public class Player : Character
 
     void FixedUpdate()
     {
-        Move();
-
         this.characterAnimator.SetFloat("Move", moveDirection.magnitude);
 
         // if (playerController.attack)
@@ -27,11 +25,11 @@ public class Player : Character
         // }
     }
 
-    public override void Move()
+    public override void Move(Vector2 _direction)
     {
-        moveDirection = (Vector3.forward * playerController.verticalMove) + (Vector3.right * playerController.horizontalMove);
+        moveDirection = (Vector3.forward * _direction.x) + (Vector3.right * _direction.y);
         Vector3 moveDistance = moveDirection.normalized * moveSpeed * Time.deltaTime;
-        if (!(playerController.horizontalMove == 0 & playerController.verticalMove == 0))
+        if (!(_direction.x == 0 & _direction.y == 0))
         {
             this.characterRigidbody.MovePosition(this.characterRigidbody.position + moveDistance);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection), Time.deltaTime * rotateSpeed);
