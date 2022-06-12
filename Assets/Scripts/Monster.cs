@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Monster : Character
 {
+    public EnemyAttackRange enemyAttackRange;
     private MonsterController monsterController;
 
     private Vector3 moveDirection;
@@ -36,5 +37,6 @@ public class Monster : Character
     public override void Attack()
     {
         // this.characterAnimator.SetTrigger("Attack");
+        this.enemyAttackRange.gameObject.SetActive(true);
     }
 }

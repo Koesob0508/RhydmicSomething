@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class EnemyAttackRange : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Monster monster;
+    public float delayTime;
+
+    void OnEnable()
     {
-        
+        StartCoroutine(this.SelfDisable());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<Player>().Hit(monster.attackDamage);
+        }
+    }
+
+    IEnumerator SelfDisable()
+    {
+        yield return new WaitForSeconds(delayTime);
+        this.gameObject.SetActive(false);
     }
 }
