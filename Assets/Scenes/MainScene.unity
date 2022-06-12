@@ -609,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 504882153}
     - target: {fileID: 5460586491530724664, guid: 2c3e38dd138767a4681f25022ce359a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5460586491530724664, guid: 2c3e38dd138767a4681f25022ce359a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -622,7 +622,7 @@ PrefabInstance:
     - target: {fileID: 5460586491530724664, guid: 2c3e38dd138767a4681f25022ce359a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1904647650}
+      objectReference: {fileID: 2060608752}
     - target: {fileID: 5460586491530724664, guid: 2c3e38dd138767a4681f25022ce359a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -637,7 +637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5460586491530724664, guid: 2c3e38dd138767a4681f25022ce359a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DoneSheetBuild
+      value: CompleteBuild
       objectReference: {fileID: 0}
     - target: {fileID: 5460586491530724664, guid: 2c3e38dd138767a4681f25022ce359a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -645,7 +645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5460586491530724664, guid: 2c3e38dd138767a4681f25022ce359a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIManager, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5460586491530724664, guid: 2c3e38dd138767a4681f25022ce359a5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -801,7 +801,7 @@ PrefabInstance:
     - target: {fileID: 2852643872094433939, guid: ae5180f6db1b63f45a82c852b0c60a9f, type: 3}
       propertyPath: uiManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1904647650}
     - target: {fileID: 2852643872094433939, guid: ae5180f6db1b63f45a82c852b0c60a9f, type: 3}
       propertyPath: sheetBuilder
       value: 

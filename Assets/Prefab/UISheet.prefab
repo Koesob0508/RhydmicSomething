@@ -306,6 +306,7 @@ MonoBehaviour:
   SheetLineContent: {fileID: 5812639963827306499}
   JoyStickBg: {fileID: 3305372264489036051}
   DeckBg: {fileID: 1622401471984123884}
+  DoneButton: {fileID: 2948701334298446753}
   SheetLinePrefab: {fileID: 437377374945366727, guid: c17a0f0135abba44d9fd30195448ee74, type: 3}
   NotePrefab: {fileID: 4682789350869801137, guid: 4222cf4eb4288554c93830312cfadeb2, type: 3}
   isBuildMode: 0
