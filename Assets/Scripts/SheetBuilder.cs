@@ -59,7 +59,7 @@ public class SheetBuilder : MonoBehaviour
 
         if (nextNoteTime <= curTime)
         {
-            currentNotes = Sheet.GetNotes(noteIndex);
+            currentNotes = Sheet.GetCurrentLineNote(noteIndex);
 
             if (currentNotes.Count == 0)
             {
