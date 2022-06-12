@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Stage Failed");
         // SceneManager.LoadScene("MainScene");
-        UIManager.instance.StageFail();
     }
 
     public void Succeeded()
@@ -36,7 +35,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Stage Succeeded");
         stageStep++;
         // SceneManager.LoadScene("MainScene");
-        UIManager.instance.StageSucceeded(stageStep);
     }
 
     public void Retry()

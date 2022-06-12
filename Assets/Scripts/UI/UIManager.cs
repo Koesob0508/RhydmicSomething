@@ -15,17 +15,7 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         StartSheetBuild();
 
-        gameManager.stageManager.stageAction += Stage;
-    }
-
-    public void StageSucceeded(int nextStage)
-    {
-
-    }
-
-    public void StageFail()
-    {
-
+        gameManager.stageManager.stageAction += SetStageStatus;
     }
 
     public void StartSheetBuild()
@@ -38,7 +28,7 @@ public class UIManager : MonoBehaviour
         gameManager.CompleteBuild();
     }
 
-    public void Stage(Define.eStageStatus status)
+    public void SetStageStatus(Define.eStageStatus status)
     {
         switch (status)
         {
@@ -58,12 +48,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void InitStage()
+    void InitStage()
     {
 
     }
 
-    public void StartStage()
+    void StartStage()
+    {
+
+    }
+
+    void SucceedStage()
+    {
+
+    }
+
+    void FailStage()
     {
 
     }
