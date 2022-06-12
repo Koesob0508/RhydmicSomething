@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-    public Player playerPrefab;
+    // public Player playerPrefab;
     public Player player;
     public Monster monsterPrefab;
     public List<Monster> monsters;
-    public List<MonsterController> monsterControllers;
     public GameManager gameManager;
     public PlayerController playerController;
 
@@ -17,7 +16,6 @@ public class StageManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         this.monsters = new List<Monster>();
-        this.monsterControllers = new List<MonsterController>();
     }
 
     // void Update()
@@ -38,10 +36,10 @@ public class StageManager : MonoBehaviour
         Debug.Log(_stageStep + "단계 Stage 생성");
 
         this.monsters.Clear();
-        this.monsterControllers.Clear();
         
-        this.player = Instantiate<Player>(playerPrefab);
-        this.playerController.SetCharacter(this.player);
+        // this.player = Instantiate<Player>(playerPrefab);
+        // this.playerController.SetCharacter(this.player);
+        this.player.gameObject.SetActive(true);
         this.SpanwMonster(_stageStep);
     }
 
@@ -60,17 +58,10 @@ public class StageManager : MonoBehaviour
 
     private void StageClear()
     {
-        if (this.player.gameObject)
-        {
-            Destroy(this.player);
-        }
+        this.player.gameObject.SetActive(false);
 
         if (monsters.Count > 0)
         {
-            foreach(MonsterController monsterController in monsterControllers)
-            {
-                Destroy(monsterController.gameObject);
-            }
             foreach (Monster monster in monsters)
             {
                 Destroy(monster.gameObject);
@@ -83,13 +74,8 @@ public class StageManager : MonoBehaviour
         for (int count = 0; count < _spawnCount; count++)
         {
             Monster monster = Instantiate<Monster>(monsterPrefab);
-
-            // 이거 바꿔야하는데 어떻게 바꿀까...
-            MonsterController monsterController = new MonsterController();
-            monsterController.SetCharacter(monster);
             
             monsters.Add(monster);
-            monsterControllers.Add(monsterController);
         }
     }
 }
