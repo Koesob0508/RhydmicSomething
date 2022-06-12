@@ -9,7 +9,8 @@ public class Define
     public enum eNoteType
     {
         none = 0,
-        On = 1
+        On = 1,
+        Off = 2,
     }
 
 
@@ -17,8 +18,8 @@ public class Define
     {
         none = 0,
         Attack = 1,
-        Heal = 2,
-        Dash = 3,
+        Dash= 2,
+        Heal = 3,
     }
 
     public enum eStageStatus

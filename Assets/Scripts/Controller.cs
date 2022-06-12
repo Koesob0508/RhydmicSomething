@@ -10,6 +10,4 @@ public abstract class Controller : MonoBehaviour
     {
         character = _character;
     }
-
-    public abstract void Attack();
 }

@@ -6,14 +6,16 @@ using System.Linq;
 public class Note
 {
     public Define.eNoteType noteType;
+    public Define.eLineType lineType;
 
     public Note()
     {
-        noteType = Define.eNoteType.none;
+        noteType = Define.eNoteType.Off;
     }
 
-    public Note(Define.eNoteType type)
+    public Note(Define.eNoteType noteType, Define.eLineType lineType)
     {
-        noteType = type;
+        this.noteType = noteType;
+        this.lineType = lineType;
     }
 }

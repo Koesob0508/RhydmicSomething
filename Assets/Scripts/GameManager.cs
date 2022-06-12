@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
 
     public int stageStep;
 
-    void Start()
+    private void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+    }
+    void Start()
+    {
 
         stageManager.stageAction += StageChanged;
     }
