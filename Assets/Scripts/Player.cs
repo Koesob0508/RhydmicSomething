@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public PlayerAttackRange playerAttackRange;
     private TestPlayerController playerController;
-
     private Vector3 moveDirection;
 
     void Start()
@@ -13,6 +13,8 @@ public class Player : Character
         playerController = GetComponent<TestPlayerController>();
         this.characterRigidbody = GetComponent<Rigidbody>();
         this.characterAnimator = GetComponent<Animator>();
+
+        this.health = this.maxHealth;
     }
 
     void FixedUpdate()
@@ -39,6 +41,7 @@ public class Player : Character
     public override void Attack()
     {
         this.characterAnimator.SetTrigger("Attack");
+        this.playerAttackRange.gameObject.SetActive(true);
     }
 
     public void Dash()

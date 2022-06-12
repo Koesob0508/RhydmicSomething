@@ -13,20 +13,20 @@ public class Monster : Character
         monsterController = GetComponent<MonsterController>();
         this.characterRigidbody = GetComponent<Rigidbody>();
         this.characterAnimator = GetComponent<Animator>();
+
+        this.health = this.maxHealth;
     }
 
     void FixedUpdate()
     {
-        Move();
-
         this.characterAnimator.SetFloat("Move", moveDirection.magnitude);    
     }
 
-    public override void Move()
+    public override void Move(Vector2 _direction)
     {
-        moveDirection = (Vector3.forward * monsterController.verticalMove) + (Vector3.right * monsterController.horizontalMove);
+        moveDirection = (Vector3.forward * _direction.x) + (Vector3.right * _direction.y);
         Vector3 moveDistance = moveDirection.normalized * moveSpeed * Time.deltaTime;
-        if (!(monsterController.horizontalMove == 0 & monsterController.verticalMove == 0))
+        if (!(_direction.x == 0 && _direction.y == 0))
         {
             this.characterRigidbody.MovePosition(this.characterRigidbody.position + moveDistance);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection), Time.deltaTime * rotateSpeed);

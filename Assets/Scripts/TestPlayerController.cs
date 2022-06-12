@@ -13,10 +13,14 @@ public class TestPlayerController : PlayerController
     public float horizontalMove { get; private set; }
     public bool attack { get; private set; }
 
+    private Vector2 direction = Vector2.zero;
+
     void Update()
     {
         verticalMove = Input.GetAxis(moveAxisName);
         horizontalMove = Input.GetAxis(rotateAxisName);
+        
+        direction = new Vector2(verticalMove, horizontalMove);
         attack = Input.GetMouseButtonUp(0);
 
         if (attack)
@@ -24,5 +28,7 @@ public class TestPlayerController : PlayerController
             Debug.Log("실행");
             character.gameObject.GetComponent<Player>().Attack();
         }
+
+        character.gameObject.GetComponent<Player>().Move(direction);
     }
 }

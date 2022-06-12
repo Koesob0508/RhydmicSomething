@@ -1565,7 +1565,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotateSpeed: 180
-  attackDamage: 0
+  maxHealth: 100
+  health: 0
+  attackDamage: 50
+  playerAttackRange: {fileID: 8003436353479588073}
 --- !u!1 &4939273491746191765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,7 +2265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &693013539059767040
 Transform:
   m_ObjectHideFlags: 0
@@ -2304,6 +2307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 718651898}
+  delayTime: 1
 --- !u!1 &6253289214686930791
 GameObject:
   m_ObjectHideFlags: 0
