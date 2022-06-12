@@ -22,6 +22,10 @@ public class UIJoystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     void Update()
     {
+        if (isInput)
+        {
+            Debug.Log(inputVector);
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
