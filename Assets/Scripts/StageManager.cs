@@ -84,11 +84,13 @@ public class StageManager : MonoBehaviour
     public void StageClear()
     {
         this.PlayerClear();
+        this.EnemyClear();
+
         if (monsters.Count > 0)
         {
             foreach (Monster monster in monsters)
             {
-                Destroy(monster);
+                Destroy(monster.gameObject);
             }
         }
 
