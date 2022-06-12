@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public UIManager uiManager;
+    public static GameManager instance;
     public StageManager stageManager;
 
     public int stageStep;
 
     void Start()
     {
+        instance = this;
         DontDestroyOnLoad(this.gameObject);
+        UIManager.instance.StartSheetBuild();
     }
 
     public void CompleteBuild()
@@ -26,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Stage Failed");
         // SceneManager.LoadScene("MainScene");
-        uiManager.StageFail();
+        UIManager.instance.StageFail();
     }
 
     public void Succeeded()
@@ -34,6 +36,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Stage Succeeded");
         stageStep++;
         // SceneManager.LoadScene("MainScene");
-        uiManager.StageClear(stageStep);
+        UIManager.instance.StageSucceeded(stageStep);
+    }
+
+    public void Retry()
+    {
+
     }
 }

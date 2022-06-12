@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StageManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class StageManager : MonoBehaviour
     private float xSize;
     private float zSize;
     private bool isStageContinue;
+
+    public UnityAction<Define.eStageStatus> stageAction = null;
 
     void Start()
     {
@@ -50,6 +53,7 @@ public class StageManager : MonoBehaviour
         this.SpanwMonster(_stageStep);
 
         this.isStageContinue = true;
+        stageAction(Define.eStageStatus.Init);
     }
 
     private void StageFailed()
@@ -59,6 +63,8 @@ public class StageManager : MonoBehaviour
         this.isStageContinue = false;
         this.StageClear();
         this.gameManager.Failed();
+
+        stageAction(Define.eStageStatus.Fail);
     }
 
     private void StageSucceeded()
@@ -67,6 +73,8 @@ public class StageManager : MonoBehaviour
         
         this.StageClear();
         this.gameManager.Succeeded();
+
+        stageAction(Define.eStageStatus.Succeed);
     }
 
     public void StageClear()
