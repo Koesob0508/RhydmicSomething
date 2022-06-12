@@ -11,9 +11,20 @@ public class StageManagerEditor : Editor
         base.OnInspectorGUI();
 
         StageManager stageManager = (StageManager)target;
+        
         if(GUILayout.Button("Stage Clear"))
         {
             stageManager.StageClear();
+        }
+
+        if(GUILayout.Button("Player Clear"))
+        {
+            stageManager.PlayerClear();
+        }
+
+        if(GUILayout.Button("Enemy Clear"))
+        {
+            stageManager.EnemyClear();
         }
     }
 }

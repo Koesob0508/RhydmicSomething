@@ -13,6 +13,7 @@ public class StageManager : MonoBehaviour
     public PlayerController playerController;
     private float xSize;
     private float zSize;
+    private bool isStageContinue;
 
     void Start()
     {
@@ -21,61 +22,78 @@ public class StageManager : MonoBehaviour
 
         this.xSize = 8f;
         this.zSize = 8f;
+        this.isStageContinue = false;
     }
 
-    // void Update()
-    // {
-    //     if (this.gameObject.activeSelf && !player.gameObject.activeSelf)
-    //     {
-    //         this.StageFailed();
-    //     }
+    void Update()
+    {
+        if (this.isStageContinue && this.player.gameObject.activeSelf)
+        {
+            this.StageFailed();
+        }
 
-    //     if (this.gameObject.activeSelf && monsters.Count == 0)
-    //     {
-    //         this.StageSucceeded();
-    //     }
-    // }
+        if (this.isStageContinue && GetAliveEnemyCount() == 0)
+        {
+            this.StageSucceeded();
+        }
+    }
 
     public void GenerateStage(int _stageStep)
     {
         Debug.Log(_stageStep + "단계 Stage 생성");
 
         this.monsters.Clear();
-        
+
         // this.player = Instantiate<Player>(playerPrefab);
         // this.playerController.SetCharacter(this.player);
         this.player.gameObject.SetActive(true);
         this.SpanwMonster(_stageStep);
+
+        this.isStageContinue = true;
     }
 
     private void StageFailed()
     {
+        Debug.Log("Player Failed");
+
+        this.isStageContinue = false;
         this.StageClear();
         this.gameManager.Failed();
     }
 
     private void StageSucceeded()
     {
+        Debug.Log("Player Succeeded");
+        
         this.StageClear();
         this.gameManager.Succeeded();
     }
 
     public void StageClear()
     {
-        this.player.gameObject.SetActive(false);
+        this.PlayerClear();
+        this.EnemyClear();
+    }
 
+    public void PlayerClear()
+    {
+        this.player.gameObject.SetActive(false);
+    }
+
+    public void EnemyClear()
+    {
         if (monsters.Count > 0)
         {
             foreach (Monster monster in monsters)
             {
-                Destroy(monster.gameObject);
+                monster.gameObject.SetActive(false);
             }
         }
     }
 
     private void SpanwMonster(int _spawnCount)
     {
-        for (int count = 0; count < _spawnCount+2; count++)
+        for (int count = 0; count < _spawnCount + 2; count++)
         {
             float randomX = UnityEngine.Random.Range(-xSize, xSize);
             float randomZ = UnityEngine.Random.Range(-zSize, zSize);
@@ -85,5 +103,20 @@ public class StageManager : MonoBehaviour
 
             monsters.Add(monster);
         }
+    }
+
+    private int GetAliveEnemyCount()
+    {
+        int result = 0;
+
+        foreach (Monster monster in monsters)
+        {
+            if (monster.gameObject.activeSelf)
+            {
+                result++;
+            }
+        }
+
+        return result;
     }
 }
