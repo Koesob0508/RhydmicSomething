@@ -41,11 +41,11 @@ namespace prototype01
         public void Move(Vector2 _direction)
         {
             moveDirection = (Vector3.forward * _direction.x) + (Vector3.right * _direction.y);
-            Vector3 moveDistance = moveDirection.normalized * moveSpeed * Time.deltaTime;
+            Vector3 moveDistance = moveDirection.normalized * moveSpeed * Time.fixedDeltaTime;
             if (this.CanMove && !(_direction.x == 0 & _direction.y == 0))
             {
                 this.characterRigidbody.MovePosition(this.characterRigidbody.position + moveDistance);
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection), Time.deltaTime * rotateSpeed);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection), Time.fixedDeltaTime * rotateSpeed);
             }
         }
 

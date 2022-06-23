@@ -31,7 +31,11 @@ namespace prototype01
         {
             if(_actionNumber == 1)
             {
-                this.player.Attack();
+                this.player.PunchAttack();
+            }
+            else if(_actionNumber == 2)
+            {
+                this.player.Dash();
             }
         }
     }

@@ -19,10 +19,7 @@ namespace prototype01
         {
             Debug.Log("Sheet Initialize");
             sheet = new List<Bar>();
-            Bar initTrack = new Bar();
-            initTrack.notes = new List<int>();
-            initTrack.notes.Add(1);
-            sheet.Add(initTrack);
+            
             for(int index = 0; index < 3; index++)
             {
                 Bar nextTrack = new Bar();
@@ -30,6 +27,11 @@ namespace prototype01
                 nextTrack.notes.Add(0);
                 sheet.Add(nextTrack);
             }
+
+            Bar initTrack = new Bar();
+            initTrack.notes = new List<int>();
+            initTrack.notes.Add(1);
+            sheet.Add(initTrack);
         }
 
         public Bar GetSheet(int _time)
@@ -40,6 +42,34 @@ namespace prototype01
         public int GetSheetLength()
         {
             return sheet.Count;
+        }
+
+        public void AddNote(int _noteNumber)
+        {
+            Bar additionalTrack = new Bar();
+            additionalTrack.notes = new List<int>();
+            additionalTrack.notes.Add(_noteNumber);
+            this.sheet.Add(additionalTrack);
+
+            Debug.Log(this.GenerateLog());
+        }
+
+        private string GenerateLog()
+        {
+            string resultString = "";
+            int timing = 0;
+
+            foreach(Bar bars in this.sheet)
+            {
+                resultString += timing + " timing : ";
+                timing++;
+                foreach(int note in bars.notes)
+                {
+                    resultString += note + " n/";
+                }
+                resultString += " | ";
+            }
+            return resultString;
         }
     }
 }

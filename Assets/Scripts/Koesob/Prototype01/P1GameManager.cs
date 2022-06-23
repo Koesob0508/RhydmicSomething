@@ -15,8 +15,9 @@ namespace prototype01
 
         [SerializeField] private P1Sheet sheet;
         [SerializeField] private P1SheetReader sheetReader;
+        [SerializeField] private P1SoundManager soundManager;
         
-        private P1UIManager uiManager;
+        [SerializeField] private P1UIManager uiManager;
         
         private P1PlayerController playerController;
         
@@ -43,20 +44,27 @@ namespace prototype01
             enemyManager.actionExp = IncreaseExp;
 
             sheet.Initialize();
-            sheetReader.Initialize(sheet, playerController);
+            sheetReader.Initialize(sheet, playerController, soundManager);
+            soundManager.Initialize();
+            uiManager.Initialize();
+            uiManager.closeUI = CloseUI;
         }
 
         private void GameStart()
         {
             enemyManager.GameStart();
+            inputManager.GameStart();
             player.GameStart();
             sheetReader.GameStart();
+            uiManager.GameStart();
         }
 
         private void GameOver()
         {
             enemyManager.GameEnd();
+            inputManager.GameEnd();
             sheetReader.GameEnd();
+            uiManager.GameEnd();
             
             Debug.Log("Game Over");
 
@@ -85,7 +93,15 @@ namespace prototype01
         private void LevelUp()
         {
             this.level++;
-            Debug.Log("·¹º§ ¾÷");
+            Time.timeScale = 0;
+            inputManager.OpenUI();
+            uiManager.LevelUp();
+        }
+
+        private void CloseUI()
+        {
+            Time.timeScale = 1;
+            inputManager.CloseUI();
         }
     }
 }

@@ -8,13 +8,15 @@ namespace prototype01
     {
         [SerializeField] private P1Sheet sheet;
         [SerializeField] private P1PlayerController playerController;
+        [SerializeField] private P1SoundManager soundManager;
         private Coroutine readCoroutine;
         [SerializeField] private int timing;
         [SerializeField] private Bar currentBar;
-        public void Initialize(P1Sheet _sheet, P1PlayerController _playerController)
+        public void Initialize(P1Sheet _sheet, P1PlayerController _playerController, P1SoundManager _soundManager)
         {
             this.sheet = _sheet;
-            playerController = _playerController;
+            this.playerController = _playerController;
+            this.soundManager = _soundManager;
 
             this.timing = 0;
         }
@@ -36,12 +38,12 @@ namespace prototype01
             {
                 this.currentBar = this.sheet.GetSheet(timing);
 
-                foreach(int actionNumber in currentBar.notes)
+                foreach(int noteNumber in currentBar.notes)
                 {
-                    this.playerController.Action(actionNumber);
+                    this.playerController.Action(noteNumber);
+                    this.soundManager.Play(noteNumber);
                 }
 
-                Debug.Log("Read");
                 yield return new WaitForSeconds(.5f);
 
                 if(timing == sheet.GetSheetLength()-1)
