@@ -6,23 +6,23 @@ namespace prototype01
 {
     public class P1InputManager : MonoBehaviour
     {
-        private P1PlayerController playerController;
-        [SerializeField] private float verticalInput;
-        [SerializeField] private float horizontalInput;
-        private Vector2 directionInfo;
+        protected P1PlayerController playerController;
+        [SerializeField] protected float verticalInput;
+        [SerializeField] protected float horizontalInput;
+        protected Vector2 directionInfo;
         private bool CanKeyboardInput;
         private bool CanMouseInput;
 
         // Update is called once per frame
-        void Update()
-        {
-            if (CanKeyboardInput)
-            {
-                this.GetKeyboardInput();
-            }
-        }
+        //void Update()
+        //{
+        //    if (CanKeyboardInput)
+        //    {
+        //        this.GetKeyboardInput();
+        //    }
+        //}
 
-        public void Initialize(P1Player _player)
+        public virtual void Initialize(P1Player _player)
         {
             this.playerController = _player.gameObject.GetComponent<P1PlayerController>();
             if (this.playerController.gameObject)
@@ -31,26 +31,28 @@ namespace prototype01
             }
         }
 
-        public void GameStart()
+        public virtual void GameStart()
         {
+            Debug.Log("조이스틱 사용 중");
             this.SetKeyboardInput(true);
             this.SetMousedInput(false);
-
         }
 
-        public void GameEnd()
+        public virtual void GameEnd()
         {
 
         }
 
-        public void OpenUI()
+        public virtual void OpenFloatingUI()
         {
+            Debug.Log("조이스틱 사용 중");
             this.SetKeyboardInput(false);
             this.SetMousedInput(true);
         }
 
-        public void CloseUI()
+        public virtual void CloseFloatingUI()
         {
+            Debug.Log("조이스틱 사용 중");
             this.SetKeyboardInput(true);
             this.SetMousedInput(false);
         }

@@ -47,7 +47,7 @@ namespace prototype01
             sheetReader.Initialize(sheet, playerController, soundManager);
             soundManager.Initialize();
             uiManager.Initialize();
-            uiManager.closeUI = CloseUI;
+            uiManager.closeFloatingUI = CloseFloatingUI;
         }
 
         private void GameStart()
@@ -94,14 +94,14 @@ namespace prototype01
         {
             this.level++;
             Time.timeScale = 0;
-            inputManager.OpenUI();
+            inputManager.OpenFloatingUI();
             uiManager.LevelUp();
         }
 
-        private void CloseUI()
+        private void CloseFloatingUI()
         {
             Time.timeScale = 1;
-            inputManager.CloseUI();
+            inputManager.CloseFloatingUI();
         }
     }
 }

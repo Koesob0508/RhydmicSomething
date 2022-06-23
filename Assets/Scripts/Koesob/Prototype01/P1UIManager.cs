@@ -9,7 +9,7 @@ namespace prototype01
     public class P1UIManager : MonoBehaviour
     {
         [SerializeField] public GameObject rewardUI;
-        public UnityAction closeUI;
+        public UnityAction closeFloatingUI;
 
         public void Initialize()
         {
@@ -31,10 +31,10 @@ namespace prototype01
             this.rewardUI.SetActive(true);
         }
 
-        public void CloseUI()
+        public void CloseRewardUI()
         {
             this.rewardUI.SetActive(false);
-            closeUI();
+            closeFloatingUI();
         }
     }
 }

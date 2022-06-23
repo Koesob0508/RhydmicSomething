@@ -62,6 +62,18 @@ namespace prototype01
             }
         }
 
+        public void SpecialDash()
+        {
+            dash.gameObject.SetActive(true);
+
+            StartCoroutine(this.StartDash());
+
+            if (this.enabled)
+            {
+                StartCoroutine(this.WaitMove());
+            }
+        }
+
         private IEnumerator WaitMove()
         {
             CanMove = false;

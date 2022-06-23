@@ -17,12 +17,17 @@ namespace prototype01
         {
             if(_noteNumber == 1)
             {
-                audioSource.clip = audioClips[0];
+                audioSource.clip = audioClips[_noteNumber-1];
                 audioSource.Play();
             }
             else if(_noteNumber == 2)
             {
-                audioSource.clip = audioClips[1];
+                audioSource.clip = audioClips[_noteNumber - 1];
+                audioSource.Play();
+            }
+            else if(_noteNumber == 3)
+            {
+                audioSource.clip = audioClips[_noteNumber - 1];
                 audioSource.Play();
             }
 

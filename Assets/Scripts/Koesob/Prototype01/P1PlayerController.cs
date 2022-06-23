@@ -37,6 +37,10 @@ namespace prototype01
             {
                 this.player.Dash();
             }
+            else if(_actionNumber == 3)
+            {
+                this.player.SpecialDash();
+            }
         }
     }
 }
