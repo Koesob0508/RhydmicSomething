@@ -32,6 +32,9 @@ namespace Prototype02
                 case 1:
                     this.player.Attack();
                     break;
+                case 2:
+                    this.player.Dash();
+                    break;
 
                 default:
                     break;

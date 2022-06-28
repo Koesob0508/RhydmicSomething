@@ -19,9 +19,23 @@ namespace Prototype02
 
         protected void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.CompareTag("Enemy"))
+            if (other.CompareTag("Enemy"))
             {
                 other.gameObject.GetComponent<P2Enemy>().TakeDamage(10f);
+            }
+        }
+
+        public void SetDirection(Vector2 _direction)
+        {
+            float angle = Mathf.Acos(Vector2.Dot(Vector2.right, _direction) / _direction.magnitude) * Mathf.Rad2Deg;
+            this.gameObject.transform.localPosition = Vector2.zero;
+            if(_direction.y !=0)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle * _direction.y);
+            }
+            else
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
         }
     }

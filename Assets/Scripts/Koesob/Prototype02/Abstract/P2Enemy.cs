@@ -15,7 +15,7 @@ namespace Prototype02
             {
                 other.gameObject.GetComponent<P2Player>().TakeDamage(10f);
 
-                this.Die();
+                this.Suicide();
             }
         }
 

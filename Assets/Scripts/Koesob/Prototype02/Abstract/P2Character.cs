@@ -62,11 +62,13 @@ namespace Prototype02
                 
                 if(_direction.x < 0)
                 {
-                    this.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                    // this.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                    this.sprite.flipX = false;
                 }
                 else if(_direction.x > 0)
                 {
-                    this.gameObject.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                    // this.gameObject.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                    this.sprite.flipX = true;
                 }
                 
             }

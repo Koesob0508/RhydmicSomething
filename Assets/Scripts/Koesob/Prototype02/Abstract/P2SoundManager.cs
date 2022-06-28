@@ -29,6 +29,7 @@ namespace Prototype02
                     audioSource.clip = audioClips[_noteNumber - 1];
                     audioSource.Play();
                     break;
+
                 default:
                     break;
             }

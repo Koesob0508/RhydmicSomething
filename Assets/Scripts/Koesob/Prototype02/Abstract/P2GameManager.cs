@@ -20,6 +20,7 @@ namespace Prototype02
         [SerializeField] protected P2Sheet sheet;
         [SerializeField] protected P2SheetReader sheetReader;
         [SerializeField] protected P2SoundManager soundManager;
+        [SerializeField] protected P2UIManager uiManager;
 
 
         public void Initialize()
@@ -42,6 +43,9 @@ namespace Prototype02
             this.sheetReader.Initialize(this.sheet, this.playerController, soundManager);
 
             this.soundManager.Initialize();
+
+            this.uiManager.Initialize();
+            uiManager.closeFloatingUI = CloseFloatingUI;
         }
 
         public void StartGame()
@@ -85,9 +89,14 @@ namespace Prototype02
         protected void LevelUp()
         {
             this.level++;
-            //Time.timeScale = 0;
-            //inputManager.OpenFloatingUI();
-            //uiManager.LevelUp();
+            Time.timeScale = 0;
+            // inputManager.OpenFloatingUI();
+            uiManager.LevelUp();
+        }
+
+        protected void CloseFloatingUI()
+        {
+            Time.timeScale = 1f;
         }
     }
 }
