@@ -14,7 +14,7 @@ namespace Prototype02
         {
             Vector2 moveDistance = moveDirection.normalized * moveSpeed * Time.fixedDeltaTime;
 
-            this.transform.Translate(moveDistance);
+            this.transform.Translate(moveDistance, Space.World);
         }
         public override void Initilize()
         {
