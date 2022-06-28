@@ -13,8 +13,7 @@ namespace Prototype02
         [SerializeField] protected bool isAttack;
         protected Vector2 directionInfo;
 
-
-        public void Initialize(P2PlayerController _playerController)
+        public virtual void Initialize(P2PlayerController _playerController)
         {
             this.playerController = _playerController;
             if(this.playerController.gameObject)

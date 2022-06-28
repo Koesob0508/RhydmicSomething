@@ -29,9 +29,9 @@ namespace Prototype02
         {
             float angle = Mathf.Acos(Vector2.Dot(Vector2.right, _direction) / _direction.magnitude) * Mathf.Rad2Deg;
             this.gameObject.transform.localPosition = Vector2.zero;
-            if(_direction.y !=0)
+            if(_direction.y < 0)
             {
-                this.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle * _direction.y);
+                this.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle * -1);
             }
             else
             {
