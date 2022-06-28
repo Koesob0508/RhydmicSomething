@@ -11,7 +11,7 @@ namespace Prototype02
         protected P2SoundManager soundManager;
         protected Coroutine readCoroutine;
         protected int timing;
-        [SerializeField] protected P2Bar currentBar;
+        [SerializeField] protected List<int> currentNotes;
 
         public bool isSheet;
         public bool isPlayerController;
@@ -62,12 +62,12 @@ namespace Prototype02
         {
             while (true)
             {
-                this.currentBar = this.sheet.GetSheet(timing);
+                this.currentNotes = this.sheet.GetSheet(timing);
 
-                foreach (int noteNumber in currentBar.notes)
+                foreach (int noteIndex in currentNotes)
                 {
-                    this.playerController.Action(noteNumber);
-                    this.soundManager.Play(noteNumber);
+                    this.playerController.Action(noteIndex);
+                    this.soundManager.Play(noteIndex);
                 }
 
                 yield return new WaitForSeconds(P2GameManager.tempo);

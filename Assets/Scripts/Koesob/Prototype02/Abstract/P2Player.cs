@@ -11,6 +11,7 @@ namespace Prototype02
 
         [SerializeField] protected Vector2 fowardDirection;
         [SerializeField] protected P2AttackRange arrowSword;
+        [SerializeField] protected P2AttackRange fireBall;
 
         public override void StartGame()
         {
@@ -32,12 +33,22 @@ namespace Prototype02
             this.fowardDirection = this.SetFowardDirection(this.moveDirection);
 
             arrowSword.gameObject.SetActive(true);
+            arrowSword.Initilize();
             arrowSword.SetDirection(this.fowardDirection);
 
             if (this.enabled)
             {
                 StartCoroutine(this.WaitMove());
             }
+        }
+
+        public void FireBall()
+        {
+            this.fowardDirection = this.SetFowardDirection(this.moveDirection);
+
+            fireBall.gameObject.SetActive(true);
+            fireBall.Initilize();
+            fireBall.SetDirection(this.fowardDirection);
         }
 
         public void Dash()

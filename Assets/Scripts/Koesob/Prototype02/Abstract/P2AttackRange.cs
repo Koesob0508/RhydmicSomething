@@ -6,12 +6,12 @@ namespace Prototype02
 {
     public abstract class P2AttackRange : MonoBehaviour
     {
-        private void OnEnable()
+        public virtual void Initilize()
         {
             StartCoroutine(InactiveSelf());
         }
 
-        IEnumerator InactiveSelf()
+        protected virtual IEnumerator InactiveSelf()
         {
             yield return new WaitForSeconds(P2GameManager.tempo * 0.75f);
             this.gameObject.SetActive(false);
@@ -25,7 +25,7 @@ namespace Prototype02
             }
         }
 
-        public void SetDirection(Vector2 _direction)
+        public virtual void SetDirection(Vector2 _direction)
         {
             float angle = Mathf.Acos(Vector2.Dot(Vector2.right, _direction) / _direction.magnitude) * Mathf.Rad2Deg;
             this.gameObject.transform.localPosition = Vector2.zero;

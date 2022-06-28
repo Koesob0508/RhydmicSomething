@@ -29,13 +29,15 @@ namespace Prototype02
         {
             switch(_actionNumber)
             {
-                case 1:
+                case 0:
                     this.player.Attack();
                     break;
-                case 2:
+                case 1:
                     this.player.Dash();
                     break;
-
+                case 2:
+                    this.player.FireBall();
+                    break;
                 default:
                     break;
             }

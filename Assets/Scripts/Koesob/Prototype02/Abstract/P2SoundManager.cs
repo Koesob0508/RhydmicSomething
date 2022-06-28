@@ -7,27 +7,30 @@ namespace Prototype02
     
     public abstract class P2SoundManager : MonoBehaviour
     {
-        protected AudioSource audioSource;
+        [SerializeField] protected AudioSource audioKick;
+        [SerializeField] protected AudioSource audioHiHat;
+        [SerializeField] protected AudioSource audioViolin;
         public List<AudioClip> audioClips;
-
-        public bool isAudioSource;
 
         public void Initialize()
         {
-            this.audioSource = this.gameObject.GetComponent<AudioSource>();
-
-            if(audioSource)
-            {
-                this.isAudioSource = true;
-            }
         }
+
         public void Play(int _noteNumber)
         {
             switch(_noteNumber)
             {
-                case > 0:
-                    audioSource.clip = audioClips[_noteNumber - 1];
-                    audioSource.Play();
+                case 0:
+                    audioKick.clip = audioClips[_noteNumber];
+                    audioKick.Play();
+                    break;
+                case 1:
+                    audioHiHat.clip = audioClips[_noteNumber];
+                    audioHiHat.Play();
+                    break;
+                case 2:
+                    audioViolin.clip = audioClips[_noteNumber];
+                    audioViolin.Play();
                     break;
 
                 default:

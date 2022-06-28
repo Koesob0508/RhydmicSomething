@@ -8,6 +8,8 @@ namespace Prototype02
     public abstract class P2GameManager : MonoBehaviour
     {
         public static float tempo;
+        public static int beat;
+        public static int instrumentsCount;
 
         [SerializeField] private int level;
         [SerializeField] private int exp;
@@ -19,6 +21,7 @@ namespace Prototype02
         [SerializeField] protected P2PlayerController playerController;
         [SerializeField] protected P2Sheet sheet;
         [SerializeField] protected P2SheetReader sheetReader;
+        [SerializeField] protected P2SongWriter songWriter;
         [SerializeField] protected P2SoundManager soundManager;
         [SerializeField] protected P2UIManager uiManager;
 
@@ -41,6 +44,8 @@ namespace Prototype02
             this.sheet.Initialize();
 
             this.sheetReader.Initialize(this.sheet, this.playerController, soundManager);
+
+            this.songWriter.Initialize(this.sheet);
 
             this.soundManager.Initialize();
 
