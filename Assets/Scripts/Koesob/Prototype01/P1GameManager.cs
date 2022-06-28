@@ -12,6 +12,7 @@ namespace prototype01
         [SerializeField] private P1Player player;
         [SerializeField] private P1InputManager inputManager;
         [SerializeField] private P1EnemyManager enemyManager;
+        private P1PlayerController playerController;
 
         [SerializeField] private P1Sheet sheet;
         [SerializeField] private P1SheetReader sheetReader;
@@ -19,7 +20,7 @@ namespace prototype01
         
         [SerializeField] private P1UIManager uiManager;
         
-        private P1PlayerController playerController;
+        
         
 
         // Start is called before the first frame update
