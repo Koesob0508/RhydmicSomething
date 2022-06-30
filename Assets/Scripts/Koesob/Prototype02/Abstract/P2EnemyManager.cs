@@ -81,7 +81,7 @@ namespace Prototype02
                 }
 
 
-                yield return new WaitForSeconds(P2GameManager.tempo * 8);
+                yield return new WaitForSeconds(P2GameManager.tempo * 4);
             }
         }
 

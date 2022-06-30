@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
-  moveSpeed: 2
+  moveSpeed: 0.5
   moveDirection: {x: 0, y: 0}
   canMove: 0
   isRigidbody: 0

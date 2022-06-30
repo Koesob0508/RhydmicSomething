@@ -67,7 +67,7 @@ namespace Prototype02
         {
             this.fowardDirection = this.SetFowardDirection(this.moveDirection);
 
-            Vector2 targetPosition = this.characterRigidbody.position + fowardDirection * this.moveSpeed * 0.5f;
+            Vector2 targetPosition = this.characterRigidbody.position + fowardDirection * this.moveSpeed;
 
             for (float dashTime = P2GameManager.tempo * 0.75f; dashTime >= 0; dashTime -= Time.fixedDeltaTime)
             {
