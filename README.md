@@ -1,5 +1,8 @@
 
-# 거두절미 Preview (ver.06.28.)
+# 거두절미 Preview (ver.06.29.)
+https://user-images.githubusercontent.com/38786000/176621901-476a12ec-f62f-460e-bc09-6d52f895a7d1.mp4
+
+이전 Preview Prototype 02.01 (ver.06.28.)
 https://user-images.githubusercontent.com/38786000/176229351-6d5ef446-a1d1-4ee3-8675-6a9cdc6b6f48.mp4
 
 이전 Preview (ver.06.24.)   
