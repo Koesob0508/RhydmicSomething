@@ -13,6 +13,7 @@ namespace Prototype02
         [SerializeField] protected Vector2 fowardDirection;
         [SerializeField] protected P2AttackRange arrowSword;
         [SerializeField] protected P2AttackRange fireBall;
+        [SerializeField] protected P2AttackRange waterFall;
 
         [SerializeField] protected Slider healthSlider;
 
@@ -74,6 +75,12 @@ namespace Prototype02
             fireBall.gameObject.SetActive(true);
             fireBall.Initilize();
             fireBall.SetDirection(this.fowardDirection);
+        }
+
+        public void WaterFall()
+        {
+            waterFall.gameObject.SetActive(true);
+            waterFall.Initilize();
         }
 
         public void Dash()

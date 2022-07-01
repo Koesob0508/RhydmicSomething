@@ -33,7 +33,7 @@ namespace Prototype02
 
         public (int, UnityAction, List<int>, string) GetRandomSelectionInfo()
         {
-            int index = Random.Range(0, 3);
+            int index = Random.Range(0, 4);
             List<int> resultList = new List<int>();
             string resultString = "";
 
@@ -53,6 +53,11 @@ namespace Prototype02
                     this.selection = RewardEnhancedAttack;
                     resultList = new List<int>() { 1, 1, 1, 2, 0, 0, 0, 0 };
                     resultString = "Add Enhanced Attack";
+                    break;
+                case 3:
+                    this.selection = RewardWaterFall;
+                    resultList = new List<int>() { 1, 1, 1, 1, 2, 0, 0, 0 };
+                    resultString = "Add Water Attack";
                     break;
                 default:
                     break;
@@ -88,6 +93,15 @@ namespace Prototype02
             this.sheet.AddBar(new P2Bar(GetBoolList(-1)));
             this.sheet.AddBar(new P2Bar(GetBoolList(-1)));
             this.sheet.AddBar(new P2Bar(GetBoolList(0)) + new P2Bar(GetBoolList(2)));
+        }
+
+        public void RewardWaterFall()
+        {
+            this.sheet.AddBar(new P2Bar(GetBoolList(-1)));
+            this.sheet.AddBar(new P2Bar(GetBoolList(-1)));
+            this.sheet.AddBar(new P2Bar(GetBoolList(-1)));
+            this.sheet.AddBar(new P2Bar(GetBoolList(-1)));
+            this.sheet.AddBar(new P2Bar(GetBoolList(3)));
         }
 
         protected List<bool> GetBoolList(int _index)
