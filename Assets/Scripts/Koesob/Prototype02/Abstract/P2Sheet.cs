@@ -132,7 +132,7 @@ namespace Prototype02
         {
             this.sheet.Add(_bar);
 
-            Debug.Log(this.GenerateLog());
+            // Debug.Log(this.GenerateLog());
         }
 
         protected string GenerateLog()

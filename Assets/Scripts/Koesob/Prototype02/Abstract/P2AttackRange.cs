@@ -6,6 +6,8 @@ namespace Prototype02
 {
     public abstract class P2AttackRange : MonoBehaviour
     {
+        float angle;
+
         public virtual void Initilize()
         {
             StartCoroutine(InactiveSelf());
@@ -27,7 +29,7 @@ namespace Prototype02
 
         public virtual void SetDirection(Vector2 _direction)
         {
-            float angle = Mathf.Acos(Vector2.Dot(Vector2.right, _direction) / _direction.magnitude) * Mathf.Rad2Deg;
+            angle = Mathf.Acos(Vector2.Dot(Vector2.right, _direction) / _direction.magnitude) * Mathf.Rad2Deg;
             this.gameObject.transform.localPosition = Vector2.zero;
             if(_direction.y < 0)
             {

@@ -43,13 +43,13 @@ namespace Prototype02
 
             this.sheet.Initialize();
 
-            this.sheetReader.Initialize(this.sheet, this.playerController, soundManager);
+            this.sheetReader.Initialize(this.sheet, this.playerController, this.soundManager);
 
             this.songWriter.Initialize(this.sheet);
 
             this.soundManager.Initialize();
 
-            this.uiManager.Initialize();
+            this.uiManager.Initialize(this.songWriter);
             uiManager.closeFloatingUI = CloseFloatingUI;
         }
 
