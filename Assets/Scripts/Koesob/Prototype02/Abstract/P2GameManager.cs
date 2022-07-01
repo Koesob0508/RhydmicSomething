@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Prototype02
 {
@@ -25,11 +26,13 @@ namespace Prototype02
         [SerializeField] protected P2SoundManager soundManager;
         [SerializeField] protected P2UIManager uiManager;
 
+        [SerializeField] protected Slider expSlider;
 
         public void Initialize()
         {
             this.level = 0;
             this.exp = 0;
+            this.expSlider.value = this.exp;
 
             this.player.Initialize();
             this.player.actionDie += this.EndGame;
@@ -89,6 +92,8 @@ namespace Prototype02
                 this.LevelUp();
                 this.exp = this.exp - this.expThreshold;
             }
+
+            this.expSlider.value = this.exp;
         }
 
         protected void LevelUp()

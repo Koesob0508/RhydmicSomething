@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Prototype02
 {
@@ -13,6 +14,8 @@ namespace Prototype02
         [SerializeField] protected P2AttackRange arrowSword;
         [SerializeField] protected P2AttackRange fireBall;
 
+        [SerializeField] protected Slider healthSlider;
+
         Vector2 resultDirection;
 
         public override void StartGame()
@@ -21,7 +24,6 @@ namespace Prototype02
 
             this.transform.position = new Vector2(0f, 0f);
             this.transform.rotation = Quaternion.identity;
-
 
             if (this.sprite.flipX)
             {
@@ -33,6 +35,15 @@ namespace Prototype02
                 // 왼쪽 바라보고 있음
                 resultDirection = Vector2.left;
             }
+
+            this.healthSlider.value = this.currentHealth;
+        }
+
+        public override void TakeDamage(float _damage)
+        {
+            base.TakeDamage(_damage);
+
+            healthSlider.value = this.currentHealth;
         }
 
         protected override void Die()
