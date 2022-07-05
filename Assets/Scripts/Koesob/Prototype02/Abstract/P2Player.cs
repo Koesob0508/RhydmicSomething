@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Prototype02
 {
@@ -12,6 +13,11 @@ namespace Prototype02
         [SerializeField] protected Vector2 fowardDirection;
         [SerializeField] protected P2AttackRange arrowSword;
         [SerializeField] protected P2AttackRange fireBall;
+        [SerializeField] protected P2AttackRange waterFall;
+
+        [SerializeField] protected Slider healthSlider;
+
+        Vector2 resultDirection;
 
         public override void StartGame()
         {
@@ -19,6 +25,26 @@ namespace Prototype02
 
             this.transform.position = new Vector2(0f, 0f);
             this.transform.rotation = Quaternion.identity;
+
+            if (this.sprite.flipX)
+            {
+                // 오른쪽 바라보고 있음
+                resultDirection = Vector2.right;
+            }
+            else
+            {
+                // 왼쪽 바라보고 있음
+                resultDirection = Vector2.left;
+            }
+
+            this.healthSlider.value = this.currentHealth;
+        }
+
+        public override void TakeDamage(float _damage)
+        {
+            base.TakeDamage(_damage);
+
+            healthSlider.value = this.currentHealth;
         }
 
         protected override void Die()
@@ -49,6 +75,12 @@ namespace Prototype02
             fireBall.gameObject.SetActive(true);
             fireBall.Initilize();
             fireBall.SetDirection(this.fowardDirection);
+        }
+
+        public void WaterFall()
+        {
+            waterFall.gameObject.SetActive(true);
+            waterFall.Initilize();
         }
 
         public void Dash()
@@ -88,21 +120,24 @@ namespace Prototype02
 
         protected Vector2 SetFowardDirection(Vector2 _moveDirection)
         {
-            Vector2 resultDirection = _moveDirection;
-
-            if (_moveDirection.magnitude == 0)
+            if(_moveDirection.magnitude != 0)
             {
-                if (this.sprite.flipX)
-                {
-                    // 오른쪽 바라보고 있음
-                    resultDirection = Vector2.right;
-                }
-                else
-                {
-                    // 왼쪽 바라보고 있음
-                    resultDirection = Vector2.left;
-                }
+                resultDirection = _moveDirection;
             }
+
+            //if (_moveDirection.magnitude == 0)
+            //{
+            //    if (this.sprite.flipX)
+            //    {
+            //        // 오른쪽 바라보고 있음
+            //        resultDirection = Vector2.right;
+            //    }
+            //    else
+            //    {
+            //        // 왼쪽 바라보고 있음
+            //        resultDirection = Vector2.left;
+            //    }
+            //}
 
             return resultDirection;
         }
