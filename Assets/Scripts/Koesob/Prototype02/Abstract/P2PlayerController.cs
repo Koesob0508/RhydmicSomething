@@ -38,6 +38,9 @@ namespace Prototype02
                 case 2:
                     this.player.FireBall();
                     break;
+                case 3:
+                    this.player.WaterFall();
+                    break;
                 default:
                     break;
             }
